@@ -17,7 +17,7 @@ const Slide = () => {
       const response = await fetch(url)
       const data = await response.json()
       setProd(data)
-      // console.log(data)
+      console.log(data)
     } catch (error) {
       console.log(error)
     }
@@ -29,9 +29,8 @@ const Slide = () => {
     dots: true,
     infinite: false,
     speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 3,
-    initialSlide: 0,
+    slidesToShow: 4,
+    slidesToScroll: 1,
     responsive: [
       {
         breakpoint: 1024,
@@ -61,7 +60,6 @@ const Slide = () => {
   }
   return (
     <div>
-      <h2> Single Item</h2>
       <Slider {...settings}>
         {prod.map((produce) => (
           <Product produce={produce} />

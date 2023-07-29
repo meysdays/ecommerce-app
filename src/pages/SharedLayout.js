@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar'
 import SearchForm from '../components/SearchForm'
 import CategoryPanel from '../components/CategoryPanel'
 import Mailing from '../components/Mailing'
+import Footer from '../components/Footer'
 
 const SharedLayout = () => {
   return (
@@ -12,7 +13,7 @@ const SharedLayout = () => {
       <CategoryPanel />
       <Outlet />
       <Mailing />
-      <h2>GOOD</h2>
+      <Footer />
     </>
   )
 }
