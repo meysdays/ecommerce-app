@@ -5,26 +5,30 @@ import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import Product from '../Product'
-import { useState, useEffect } from 'react'
+// import { useState, useEffect } from 'react'
+import { useGlobalContext } from '../../context'
 
-const url = 'http://localhost:8080/product/'
+// const url = 'http://localhost:8080/product/'
 
 const Slide = () => {
-  const [prod, setProd] = useState([])
+  const { prod } = useGlobalContext()
 
-  const getProduct = async () => {
-    try {
-      const response = await fetch(url)
-      const data = await response.json()
-      setProd(data)
-      console.log(data)
-    } catch (error) {
-      console.log(error)
-    }
-  }
-  useEffect(() => {
-    getProduct()
-  }, [])
+  // const [prod, setProd] = useState([])
+
+  // const getProduct = async () => {
+  //   try {
+  //     const response = await fetch(url)
+  //     const data = await response.json()
+  //     setProd(data)
+  //     console.log(data)
+  //   } catch (error) {
+  //     console.log(error)
+  //   }
+  // }
+  // useEffect(() => {
+  //   getProduct()
+  // }, [])
+
   const settings = {
     dots: true,
     infinite: false,
@@ -62,7 +66,7 @@ const Slide = () => {
     <div>
       <Slider {...settings}>
         {prod.map((produce) => (
-          <Product produce={produce} />
+          <Product key={produce.id} produce={produce} />
         ))}
       </Slider>
     </div>

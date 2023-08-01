@@ -7,7 +7,7 @@ import Contact from './pages/Contact'
 import Error from './pages/Error'
 import Login from './pages/Login'
 import Cart from './pages/Cart'
-import LaptopPage from './pages/LaptopPage'
+import SingleCategory from './pages/SingleCategory'
 import SharedLayout from './pages/SharedLayout'
 
 function App() {
@@ -16,11 +16,12 @@ function App() {
       <Routes>
         <Route path="/" element={<SharedLayout />}>
           <Route index element={<Home />} />
+          <Route path=":cateId" element={<SingleCategory />} />
           <Route path="about" element={<About />} />
           <Route path="contact" element={<Contact />} />
           <Route path="cart" element={<Cart />} />
           <Route path="Login" element={<Login />} />
-          <Route path="laptop" element={<LaptopPage />} />
+          <Route path="laptop" element={<SharedLayout />} />
           <Route path="*" element={<Error />} />
         </Route>
       </Routes>

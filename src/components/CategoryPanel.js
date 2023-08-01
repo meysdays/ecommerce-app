@@ -24,7 +24,11 @@ const CategoryPanel = () => {
       <ul className="cate">
         <li>
           {category.map(({ categoryName, id }) => (
-            <NavLink to={`/${categoryName}`} key={id}>
+            <NavLink
+              to={`/${id}`}
+              key={id}
+              className={({ isActive }) => (isActive ? 'link active' : 'link')}
+            >
               {categoryName}
             </NavLink>
           ))}
